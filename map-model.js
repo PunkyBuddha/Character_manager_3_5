@@ -1,0 +1,6 @@
+export const MAP_COLORS={red:'#cb4c43',gold:'#bb882e',blue:'#407ac5',green:'#3b9169',purple:'#9459b1'};
+export function fitMap(w,h,mw,mh){const fit=Math.min(w/mw,h/mh);return {fit,scale:fit,x:(w-mw*fit)/2,y:(h-mh*fit)/2};}
+export function clampView(v,w,h,mw,mh){const dw=mw*v.scale,dh=mh*v.scale;return {...v,x:dw<=w?(w-dw)/2:Math.min(0,Math.max(w-dw,v.x)),y:dh<=h?(h-dh)/2:Math.min(0,Math.max(h-dh,v.y))};}
+export function zoomAt(v,factor,x,y,w,h,mw,mh){const scale=Math.max(v.fit,Math.min(v.fit*64,v.scale*factor));const ratio=scale/v.scale;return clampView({...v,scale,x:x-(x-v.x)*ratio,y:y-(y-v.y)*ratio},w,h,mw,mh);}
+export function screenToMap(v,x,y,mw,mh){return {x:(x-v.x)/(mw*v.scale),y:(y-v.y)/(mh*v.scale)};}
+export function validateMapPoints(c){if(c.mapPoints===undefined)return;if(!Array.isArray(c.mapPoints)||c.mapPoints.length>5000)throw Error('Pontos de interesse inválidos.');const ids=new Set();for(const p of c.mapPoints){if(!p||typeof p.id!=='string'||ids.has(p.id)||typeof p.name!=='string'||!p.name.trim()||p.name.length>100||typeof p.legend!=='string'||p.legend.length>10000||!Object.hasOwn(MAP_COLORS,p.color)||!Number.isFinite(p.x)||!Number.isFinite(p.y)||p.x<0||p.x>1||p.y<0||p.y>1)throw Error('Ponto de interesse inválido.');ids.add(p.id);}}

@@ -1,0 +1,1 @@
+export const MAP_CONFIG={"width": 10200, "height": 6600, "tileSize": 512, "levels": [{"width": 638, "height": 413}, {"width": 1275, "height": 825}, {"width": 2550, "height": 1650}, {"width": 5100, "height": 3300}, {"width": 10200, "height": 6600}]};

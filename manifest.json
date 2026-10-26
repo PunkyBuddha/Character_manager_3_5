@@ -1,0 +1,25 @@
+{
+  "name": "D&D 3.5 - Ficha & Mestre das Muitas Formas",
+  "short_name": "D&D 3.5 & MoMF",
+  "description": "Ficha completa de D&D 3.5 com gerenciador de transformações para Mestre das Muitas Formas e Druida",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#18191b",
+  "theme_color": "#18191b",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
